@@ -115,7 +115,7 @@ export default modalTemplate({
       if (fileList.length > 0) {
         const file = fileList.item(0);
         const { response } = upload([file]);        
-        const ret = await response;
+        const ret = (await response).data;
         let uri = ret[file.name];
         if (DEV) {
           uri = staticBaseUrl + uri;
