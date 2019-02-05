@@ -61,8 +61,10 @@ let params = url.substring(url.lastIndexOf("?") + 1);
 params = qs.parse(params);
 let { uploadAction, DEV, staticBaseUrl } = params;
 
-console.log("stackedit: receive params", params);
-
+try {
+  window.parent.console.log("stackedit: receive params", params);
+  console.log("stackedit: receive params", params);
+} catch (e) {}
 // uploadAction = "http://localhost:8080/file/upload";
 // DEV = true;
 // staticBaseUrl = "http://localhost:8080";
