@@ -61,6 +61,8 @@ let params = url.substring(url.lastIndexOf("?") + 1);
 params = qs.parse(params);
 let { uploadAction, DEV, staticBaseUrl } = params;
 
+console.log("stackedit: receive params", params);
+
 // uploadAction = "http://localhost:8080/file/upload";
 // DEV = true;
 // staticBaseUrl = "http://localhost:8080";
@@ -114,7 +116,7 @@ export default modalTemplate({
       const fileList = this.$refs.uploadInput.files;
       if (fileList.length > 0) {
         const file = fileList.item(0);
-        const { response } = upload([file]);        
+        const { response } = upload([file]);
         const ret = (await response).data;
         let uri = ret[file.name];
         if (DEV) {
